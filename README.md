@@ -28,9 +28,11 @@ Las pestañas **Dispositivos**, **Escenas** y **Estancias** son la base de datos
 
 ### 2. Conectar el puente (Apps Script)
 
-1. En la Hoja: **Extensiones → Apps Script**.
+> **Cómo está montado ahora:** proyecto independiente **«Domotica Avi - puente web»** en [script.google.com](https://script.google.com), en la cuenta de Avi. Con varias cuentas de Google abiertas a la vez, *Extensiones → Apps Script* no abría, así que el proyecto va aparte y encuentra la hoja gracias a la propiedad `ID_HOJA`.
+
+1. En la Hoja: **Extensiones → Apps Script**. Si no abre, crea un proyecto nuevo en [script.google.com](https://script.google.com) y añade la propiedad `ID_HOJA` (paso 3) con el identificador de la hoja: lo que va entre `/d/` y `/edit` en su dirección.
 2. Borra lo que haya, pega todo el contenido de `apps-script/Code.gs` y guarda (icono del disquete).
-3. **PIN**: ⚙️ **Configuración del proyecto → Propiedades de la secuencia de comandos → Añadir propiedad**. Nombre `PIN`, valor el que queráis (mejor 6 cifras o más). Se puede cambiar cuando se quiera, sin volver a implementar.
+3. **Propiedades**: ⚙️ **Configuración del proyecto → Propiedades de script → Añadir propiedad de script**. `PIN` es obligatoria: el valor que queráis (mejor 6 cifras o más), y se puede cambiar cuando se quiera, sin volver a implementar. `ID_HOJA` solo hace falta en un proyecto independiente.
 4. Pulsa **Implementar → Nueva implementación**:
    - Tipo: **Aplicación web**.
    - Ejecutar como: **Yo** (la cuenta de Avi).
