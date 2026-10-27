@@ -58,8 +58,18 @@ function comprobarPin(pin) {
   }
 }
 
+// Si el script está creado desde la hoja (Extensiones > Apps Script) la usa directamente.
+// Si es un proyecto independiente, abre la hoja indicada en la propiedad ID_HOJA.
+function libro() {
+  const activo = SpreadsheetApp.getActive();
+  if (activo) return activo;
+  const id = PropertiesService.getScriptProperties().getProperty('ID_HOJA');
+  if (!id) throw new Error('Falta la propiedad ID_HOJA del proyecto');
+  return SpreadsheetApp.openById(id);
+}
+
 function hoja(nombre) {
-  const h = SpreadsheetApp.getActive().getSheetByName(HOJAS[nombre]);
+  const h = libro().getSheetByName(HOJAS[nombre]);
   if (!h) throw new Error('No existe la pestaña ' + HOJAS[nombre]);
   return h;
 }
